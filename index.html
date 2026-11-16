@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team Bio</title>
+    <title>Team TBD | Meet Our Team</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Monoton&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
 </head>
 <body>
 
 <header>
-    <h1>Meet Our Team</h1>
-    <!-- Example team logo -->
-    <img src="img/team-logo.png" alt="Team Logo" class="team-logo">
+    <img src="img/team-logo.png" alt="Team TBD logo: the letters TBD in purple neon" class="team-logo">
 
     <!-- Navigation menu to switch between sections -->
     <nav>
-        <button onclick="showSection('bios')">Team Bios</button>
-        <button onclick="showSection('vision')">Team Vision</button>
+        <button id="nav-bios" class="active" onclick="showSection('bios')">Team Bios</button>
+        <button id="nav-vision" onclick="showSection('vision')">Team Vision</button>
     </nav>
 </header>
 
-<!-- Team bios section (default section) -->
-<div id="bios" class="container">
+<main>
+
+<section id="bios" class="container">
     <!-- Each card represents an individual team member -->
     <div class="card card-keith">
         <img src="https://static.wikitide.net/greatcharacterswiki/3/39/SackboyLBP.png" alt="Keith Patterson Avatar" class="avatar" width="250">
@@ -45,38 +49,108 @@
                     </div>
                 </div>
                 <div class="mood-links">
-                    <a href="https://github.com" target="_blank">GitHub</a>
+                    <a href="https://github.com/kpatte45-commits" target="_blank" rel="noopener">GitHub</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="card">
-        <h2>Jane Smith</h2>
-        <p>Backend Developer</p>
-        <button onclick="toggleBio('bio2')">Show Bio</button>
-        <p id="bio2" class="bio">Jane is a backend developer specializing in server-side logic and database management.</p>
-    </div>
-    <div class="card">
-        <h2>Emily Johnson</h2>
-        <p>UI/UX Designer</p>
-        <button onclick="toggleBio('bio3')">Show Bio</button>
-        <p id="bio3" class="bio">Emily is a UI/UX designer with a passion for creating user-friendly interfaces.</p>
-    </div>
-</div>
 
-<!-- Team vision/mission statement section (hidden by default) -->
-<div id="vision" class="container" style="display: none;">
-    <h2>Our Mission Statement</h2>
+    <!-- ===== KIRK: terminal-style card ===== -->
+    <article class="card card--terminal">
+        <div class="titlebar"><span></span><span></span><span></span><code>~/team-tbd/kirk</code></div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspUWOBYtuQS5AoKASCFR2xxgknFYyEinK4GDA4sPiPg&s" alt="Avatar for Kirk" class="avatar">
+        <h2>Kirk</h2>
+        <p class="role">Scrum Master</p>
+        <button onclick="toggleBio('bio1', this)" aria-expanded="false" aria-controls="bio1">Show Bio</button>
+        <!-- TODO (Kirk): replace with your own 2–3 sentence bio -->
+        <p id="bio2" class="bio">Kirk is a computer science student who likes building and shipping projects end to end. He keeps the team's sprints on track and is happiest automating anything he has to do twice.</p>
+
+        <div class="moodboard">
+            <h3>Moodboard</h3>
+            <div class="mood-grid">
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+1" alt="Kirk moodboard image 1"> -->
+                    <figcaption>Favorite tool: the terminal</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+2" alt="Kirk moodboard image 2"> -->
+                    <figcaption>Git branching</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+3" alt="Kirk moodboard image 3"> -->
+                    <figcaption>Every demo day</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+4" alt="Kirk moodboard image 4"> -->
+                    <figcaption>Automation</figcaption>
+                </figure>
+            </div>
+            <ul class="mood-links">
+                <a href="https://github.com/kirkpatton3" target="_blank" rel="noopener">GitHub</a>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== IVAN: terminal-style card ===== -->
+    <article class="card card--terminal">
+        <div class="titlebar"><span></span><span></span><span></span><code>~/team-tbd/ivan</code></div>
+        <img src="https://archives.bulbagarden.net/media/upload/thumb/7/7d/0255Torchic.png/640px-0255Torchic.png" alt="Avatar for Ivan" class="avatar">
+        <h2>Ivan</h2>
+        <p class="role">Developer</p>
+        <button onclick="toggleBio('bio2', this)" aria-expanded="false" aria-controls="bio2">Show Bio</button>
+        <!-- TODO (Ivan): replace with your own 2–3 sentence bio -->
+        <p id="bio3" class="bio">Placeholder text</p>
+        <div class="moodboard">
+            <h3>Moodboard</h3>
+            <div class="mood-grid">
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Ivan+1" alt="Ivan moodboard image 1"> -->
+                    <figcaption>Functional programming</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Ivan+2" alt="Ivan moodboard image 2"> -->
+                    <figcaption>Clean code</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Ivan+3" alt="Ivan moodboard image 3"> -->
+                    <figcaption>Fuel</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Ivan+4" alt="Ivan moodboard image 4"> -->
+                    <figcaption>Recursion</figcaption>
+                </figure>
+            </div>
+            <ul class="mood-links">
+                <a href="https://github.com/iaguila3-oss" target="_blank" rel="noopener">GitHub</a>
+            </ul>
+        </div>
+    </article>
+</section>
+
+<!-- ============================================================
+     TEAM VISION / MISSION (hidden by default)
+     ============================================================ -->
+<section id="vision" class="container vision" hidden>
+    <div>
+        <h2>Our Mission Statement</h2>
     <p>As computer scientists, we bridge the gap between clean, resilient architecture and intuitive human-centered design. Driven by curiosity and rigorous problem-solving, our goal is to turn complex technical challenges into accessible, scalable software that empowers everyday users.</p>
     <h2>Team Rules</h2>
-<ul>
-    <li><strong>Blameless Debugging:</strong> When code breaks, we focus on fixing the system rather than pointing fingers.</li>
-    <li><strong>Constructive Code Reviews:</strong> Critique the code, never the coder. Always explain the "why" behind suggested changes.</li>
-    <li><strong>Communicate Blockers Early:</strong> Asking for help after 30 minutes of being stuck beats losing a whole day in silence.</li>
-    <li><strong>Respect Deep Work & Boundaries:</strong> Document technical decisions clearly and respect everyone's offline hours.</li>
-    <li><strong>Inclusive Decision-Making:</strong> Every perspective matters, listen actively and weigh trade-offs together before committing.</li>
-</ul>
-</div>
+    <ul>
+        <li><strong>Blameless Debugging:</strong> When code breaks, we focus on fixing the system rather than pointing fingers.</li>
+        <li><strong>Constructive Code Reviews:</strong> Critique the code, never the coder. Always explain the "why" behind suggested changes.</li>
+        <li><strong>Communicate Blockers Early:</strong> Asking for help after 30 minutes of being stuck beats losing a whole day in silence.</li>
+        <li><strong>Respect Deep Work & Boundaries:</strong> Document technical decisions clearly and respect everyone's offline hours.</li>
+        <li><strong>Inclusive Decision-Making:</strong> Every perspective matters, listen actively and weigh trade-offs together before committing.</li>
+    </ul>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Team TBD &middot; Kirk, Ivan &amp; Keith</p>
+</footer>
 
 <script src="script.js"></script> <!-- Link to external JavaScript file -->
 

@@ -1,90 +1,486 @@
-/* General page styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+:root {
+    --black: #07060a;
+    --surface: #120f19;
+    --surface-2: #1b1626;
+    --purple-950: #1e1035;
+    --purple-800: #4c1d95;
+    --purple-700: #6d28d9;
+    --purple-600: #7c3aed;
+    --purple-500: #a855f7;
+    --purple-300: #c4b5fd;
+    --purple-100: #ede9fe;
+    --text: #e9e4f5;
+    --muted: #a79fbc;
+
+    --font-display: "Monoton", "Orbitron", sans-serif;
+    --font-heading: "Orbitron", "Segoe UI", sans-serif;
+    --font-body: "Space Grotesk", "Segoe UI", Arial, sans-serif;
+    --font-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
 }
 
-/* Header section styling */
+* {
+    box-sizing: border-box;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--purple-300);
+}
+
+a:hover {
+    color: var(--purple-100);
+}
+
+code {
+    font-family: var(--font-mono);
+}
+
 header {
-    background: #333;
+    background: var(--purple-600);
     color: #fff;
-    padding: 10px 0;
+    border-bottom: 4px solid var(--black);
+    padding: 32px 16px 24px;
     text-align: center;
 }
 
-/* Styling for team logo image */
 .team-logo {
-    width: 150px; /* Adjust the size as needed */
-    margin-top: 10px;
+    width: 150px;
+    filter: drop-shadow(0 6px 16px rgba(7, 6, 10, 0.55));
 }
 
-/* Menu button styling */
+.tagline {
+    font-family: var(--font-mono);
+    color: var(--purple-100);
+    font-size: 0.9rem;
+    margin: 16px 0 0;
+}
+
 header nav {
-    margin-top: 10px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 header nav button {
-    background: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid var(--black);
+    border-radius: 999px;
+    padding: 10px 22px;
 }
 
-header nav button:hover {
-    background: #0056b3;
+header nav button:hover,
+header nav button.active {
+    background: var(--black);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(7, 6, 10, 0.4);
 }
 
-/* Flex container for team bios and vision sections */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-/* Card styling for individual team bios */
-.card {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    flex: 1 1 calc(30% - 40px);
-    text-align: center;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-h2 {
-    margin: 0 0 10px;
-}
-
-/* Initially hide bio details */
-.bio {
-    display: none;
-    margin-top: 10px;
-    color: #555;
-}
-
-/* Button styling */
 button {
-    background: #007BFF;
-    color: white;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--purple-600);
+    color: #fff;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 10px 16px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 button:hover {
-    background: #0056b3;
+    background: var(--purple-700);
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--purple-300);
+    outline-offset: 3px;
+}
+
+.container {
+    width: min(1200px, 92%);
+    margin: 32px auto 48px;
+}
+
+#bios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+@media (max-width: 960px) {
+    #bios {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+    }
+}
+
+.card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h2 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    margin: 12px 0 0;
+}
+
+.card .role {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--purple-300);
+    margin: 2px 0 14px;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+}
+
+.bio {
+    margin: 14px 0 0;
+    text-align: left;
+    color: var(--text);
+}
+
+.card:not(.expanded) .bio,
+.card:not(.expanded) .moodboard h3,
+.card:not(.expanded) .mood-tile figcaption,
+.card:not(.expanded) .mood-text,
+.card:not(.expanded) .mood-links {
+    display: none;
+}
+
+.moodboard {
+    margin-top: 22px;
+    text-align: left;
+}
+
+.moodboard h3 {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--purple-500);
+    margin: 0 0 10px;
+}
+
+.mood-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.mood-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+}
+
+.mood-tile {
+    margin: 0;
+    background: var(--surface-2);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.85rem;
+}
+
+.mood-tile img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.mood-tile:not(.mood-text):not(:has(img))::before {
+    content: "";
+    display: block;
+    aspect-ratio: 3 / 2;
+    background: repeating-linear-gradient(45deg, rgba(124, 58, 237, 0.14) 0 10px, transparent 10px 20px);
+}
+
+.mood-tile figcaption {
+    padding: 6px 10px 8px;
+    color: var(--muted);
+}
+
+.mood-text {
+    padding: 10px 12px;
+}
+
+.mood-text p {
+    margin: 4px 0 0;
+}
+
+.mood-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--purple-500);
+}
+
+.mood-links {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mood-links a {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid var(--purple-700);
+    border-radius: 999px;
+}
+
+.mood-links a:hover {
+    background: var(--purple-800);
+}
+
+/* ==========================================================
+   Bio cards
+   ========================================================== */
+
+.card--terminal {
+    background: var(--black);
+    border: 2px solid var(--purple-600);
+    border-radius: 10px;
+    padding-top: 0;
+    font-family: var(--font-mono);
+}
+
+.card--terminal:hover {
+    box-shadow: 0 0 0 1px var(--purple-500), 0 12px 30px rgba(124, 58, 237, 0.35);
+}
+
+.card--terminal .titlebar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 -24px 18px;
+    padding: 10px 14px;
+    background: var(--purple-950);
+    border-bottom: 1px solid var(--purple-700);
+    border-radius: 8px 8px 0 0;
+}
+
+.card--terminal .titlebar span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--purple-500);
+}
+
+.card--terminal .titlebar span:nth-child(2) { background: var(--purple-600); }
+.card--terminal .titlebar span:nth-child(3) { background: var(--purple-800); }
+
+.card--terminal .titlebar code {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.card--terminal h2 {
+    font-family: var(--font-mono);
+    font-weight: 700;
+}
+
+.card--terminal h2::before {
+    content: "> ";
+    color: var(--purple-500);
+}
+
+.card--terminal .avatar {
+    border-radius: 10px;
+}
+
+.card--terminal .bio {
+    border-left: 3px solid var(--purple-600);
+    padding-left: 12px;
+    font-size: 0.9rem;
+}
+
+.card--terminal .mood-tile {
+    border: 1px dashed var(--purple-800);
+    border-radius: 4px;
+}
+
+/* ==========================================================
+   Team Vision / Mission
+   ========================================================== */
+.vision {
+    display: grid;
+    gap: 28px;
+}
+
+.mission {
+    background: var(--black);
+    border: 1px solid var(--purple-700);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.mission-file {
+    background: var(--purple-950);
+    border-bottom: 1px solid var(--purple-700);
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.mission h2 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--purple-500);
+    margin: 24px 28px 8px;
+}
+
+.mission h2::before {
+    content: "# ";
+    color: var(--purple-700);
+}
+
+.mission p {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 0 28px 28px;
+    padding-left: 16px;
+    border-left: 3px solid var(--purple-600);
+}
+
+.identity {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.identity-card {
+    background: var(--surface);
+    border-top: 4px solid var(--purple-500);
+    border-radius: 8px;
+    padding: 20px 22px;
+}
+
+.identity-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--purple-300);
+    margin: 0 0 10px;
+}
+
+.identity-card ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.identity-card li::marker {
+    color: var(--purple-500);
+}
+
+.rules {
+    background: linear-gradient(135deg, var(--purple-950), var(--black));
+    border: 1px solid var(--purple-800);
+    border-radius: 10px;
+    padding: 24px 28px;
+}
+
+.rules h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 0 0 12px;
+}
+
+.rules ol {
+    list-style: none;
+    counter-reset: rule -1;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 10px 28px;
+}
+
+.rules li {
+    counter-increment: rule;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--purple-800);
+}
+
+.rules li::before {
+    content: "rules[" counter(rule) "] ";
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--purple-500);
+}
+
+.rules code {
+    color: var(--purple-300);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--purple-950);
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 500px) {
+    .mood-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .rules ol {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    button {
+        transition: none;
+    }
+
+    .card:hover {
+        transform: none;
+    }
 }
