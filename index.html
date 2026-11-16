@@ -23,11 +23,32 @@
 <!-- Team bios section (default section) -->
 <div id="bios" class="container">
     <!-- Each card represents an individual team member -->
-    <div class="card">
+    <div class="card card-keith">
+        <img src="https://static.wikitide.net/greatcharacterswiki/3/39/SackboyLBP.png" alt="Keith Patterson Avatar" class="avatar" width="250">
         <h2>Keith Patterson</h2>
-        <p>Frontend Developer</p>
-        <button onclick="toggleBio('bio1')">Show Bio</button>
-        <p id="bio1" class="bio">John is a skilled frontend developer with 5 years of experience in creating responsive web applications.</p>
+        <p class="role">Frontend Developer</p>
+        <button onclick="toggleBio('bio1', this)">Show Bio & Moodboard</button>
+
+        <div id="bio1" class="bio-content">
+            <p class="bio-text">I am a skilled frontend developer with 2 years of experience crafting responsive, accessible web applications and pixel-perfect animations.</p>
+
+            <div class="moodboard">
+                <h4>CS Moodboard & Inspirations</h4>
+                <div class="moodboard-grid">
+                    <div class="mood-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Logo">
+                        <span>React & CSS Grid</span>
+                    </div>
+                    <div class="mood-item">
+                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=CSSMeme" alt="CSS Meme">
+                        <span>"Centering a Div"</span>
+                    </div>
+                </div>
+                <div class="mood-links">
+                    <a href="https://github.com" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="card">
         <h2>Jane Smith</h2>
@@ -46,7 +67,15 @@
 <!-- Team vision/mission statement section (hidden by default) -->
 <div id="vision" class="container" style="display: none;">
     <h2>Our Mission Statement</h2>
-    <p>We strive to create a collaborative, inclusive, and innovative environment where team members feel empowered to push boundaries and achieve excellence in their craft. Our mission is to deliver high-quality solutions that meet and exceed our clients' expectations.</p>
+    <p>As computer scientists, we bridge the gap between clean, resilient architecture and intuitive human-centered design. Driven by curiosity and rigorous problem-solving, our goal is to turn complex technical challenges into accessible, scalable software that empowers everyday users.</p>
+    <h2>Team Rules</h2>
+<ul>
+    <li><strong>Blameless Debugging:</strong> When code breaks, we focus on fixing the system rather than pointing fingers.</li>
+    <li><strong>Constructive Code Reviews:</strong> Critique the code, never the coder. Always explain the "why" behind suggested changes.</li>
+    <li><strong>Communicate Blockers Early:</strong> Asking for help after 30 minutes of being stuck beats losing a whole day in silence.</li>
+    <li><strong>Respect Deep Work & Boundaries:</strong> Document technical decisions clearly and respect everyone's offline hours.</li>
+    <li><strong>Inclusive Decision-Making:</strong> Every perspective matters, listen actively and weigh trade-offs together before committing.</li>
+</ul>
 </div>
 
 <script src="script.js"></script> <!-- Link to external JavaScript file -->
