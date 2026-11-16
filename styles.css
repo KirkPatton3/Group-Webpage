@@ -484,3 +484,7 @@ footer {
         transform: none;
     }
 }
+
+.card:not(.expanded) .bio-content {
+    display: none;
+}

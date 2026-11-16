@@ -27,33 +27,32 @@
 
 <section id="bios" class="container">
     <!-- Each card represents an individual team member -->
-    <div class="card card-keith">
-        <img src="https://static.wikitide.net/greatcharacterswiki/3/39/SackboyLBP.png" alt="Keith Patterson Avatar" class="avatar" width="250">
+    <!-- ===== KEITH: terminal-style card ===== -->
+    <article class="card card--terminal">
+        <div class="titlebar"><span></span><span></span><span></span><code>~/team-tbd/keith</code></div>
+        <img src="https://static.wikitide.net/greatcharacterswiki/3/39/SackboyLBP.png" alt="Avatar for Keith" class="avatar">
         <h2>Keith Patterson</h2>
         <p class="role">Frontend Developer</p>
-        <button onclick="toggleBio('bio1', this)">Show Bio & Moodboard</button>
+        <button onclick="toggleBio('bio1', this)" aria-expanded="false" aria-controls="bio1">Show Bio</button>
+        <p id="bio1" class="bio">I am a skilled frontend developer with 2 years of experience crafting responsive, accessible web applications and pixel-perfect animations.</p>
 
-        <div id="bio1" class="bio-content">
-            <p class="bio-text">I am a skilled frontend developer with 2 years of experience crafting responsive, accessible web applications and pixel-perfect animations.</p>
-
-            <div class="moodboard">
-                <h4>CS Moodboard & Inspirations</h4>
-                <div class="moodboard-grid">
-                    <div class="mood-item">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Logo">
-                        <span>React & CSS Grid</span>
-                    </div>
-                    <div class="mood-item">
-                        <img src="https://api.dicebear.com/7.x/bottts/svg?seed=CSSMeme" alt="CSS Meme">
-                        <span>"Centering a Div"</span>
-                    </div>
-                </div>
-                <div class="mood-links">
-                    <a href="https://github.com/kpatte45-commits" target="_blank" rel="noopener">GitHub</a>
-                </div>
+        <div class="moodboard">
+            <h3>CS Moodboard &amp; Inspirations</h3>
+            <div class="mood-grid">
+                <figure class="mood-tile">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo">
+                    <figcaption>React &amp; CSS Grid</figcaption>
+                </figure>
+                <figure class="mood-tile">
+                    <img src="https://api.dicebear.com/7.x/bottts/svg?seed=CSSMeme" alt="Cartoon robot">
+                    <figcaption>"Centering a Div"</figcaption>
+                </figure>
             </div>
+            <ul class="mood-links">
+                <li><a href="https://github.com/kpatte45-commits" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
         </div>
-    </div>
+    </article>
 
     <!-- ===== KIRK: terminal-style card ===== -->
     <article class="card card--terminal">
@@ -61,28 +60,19 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRspUWOBYtuQS5AoKASCFR2xxgknFYyEinK4GDA4sPiPg&s" alt="Avatar for Kirk" class="avatar">
         <h2>Kirk</h2>
         <p class="role">Scrum Master</p>
-        <button onclick="toggleBio('bio1', this)" aria-expanded="false" aria-controls="bio1">Show Bio</button>
-        <!-- TODO (Kirk): replace with your own 2–3 sentence bio -->
-        <p id="bio2" class="bio">Kirk is a computer science student who likes building and shipping projects end to end. He keeps the team's sprints on track and is happiest automating anything he has to do twice.</p>
+        <button onclick="toggleBio('bio2', this)" aria-expanded="false" aria-controls="bio2">Show Bio</button>
+        <p id="bio2" class="bio">I really enjoy programming due to its sandbox nature. I particularly enjoy algorithms and doing complicated things because it requires a puzzle like solution. I've been programming for over a decade.</p>
 
         <div class="moodboard">
             <h3>Moodboard</h3>
             <div class="mood-grid">
                 <figure class="mood-tile">
-                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+1" alt="Kirk moodboard image 1"> -->
-                    <figcaption>Favorite tool: the terminal</figcaption>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWO_Pgk6Hzoth57I_Yb1db-D53IqsVSnujXLRH5qo747qM_cLF5PjH7HHn5ar625NCOTePk0MprvjVEixmhfY7ByeyosXNzt-f_9nccaVJ7aKQgGA&s=10&ec=122259007" alt="Kirk moodboard image 1">
+                    <figcaption>Insparational figure: Linus Torvalds</figcaption>
                 </figure>
                 <figure class="mood-tile">
-                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+2" alt="Kirk moodboard image 2"> -->
-                    <figcaption>Git branching</figcaption>
-                </figure>
-                <figure class="mood-tile">
-                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+3" alt="Kirk moodboard image 3"> -->
-                    <figcaption>Every demo day</figcaption>
-                </figure>
-                <figure class="mood-tile">
-                    <!-- <img src="https://placehold.co/240x160/0e0b15/a855f7?text=Kirk+4" alt="Kirk moodboard image 4"> -->
-                    <figcaption>Automation</figcaption>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPB1HGbW0XW3hx-qCOlct8Pi57pRQme_jihmoRWjCH0w&s=10" alt="Kirk moodboard image 2">
+                    <figcaption>Minecraft is my favorite game</figcaption>
                 </figure>
             </div>
             <ul class="mood-links">
@@ -97,7 +87,7 @@
         <img src="https://archives.bulbagarden.net/media/upload/thumb/7/7d/0255Torchic.png/640px-0255Torchic.png" alt="Avatar for Ivan" class="avatar">
         <h2>Ivan</h2>
         <p class="role">Developer</p>
-        <button onclick="toggleBio('bio2', this)" aria-expanded="false" aria-controls="bio2">Show Bio</button>
+        <button onclick="toggleBio('bio3', this)" aria-expanded="false" aria-controls="bio3">Show Bio</button>
         <!-- TODO (Ivan): replace with your own 2–3 sentence bio -->
         <p id="bio3" class="bio">Placeholder text</p>
         <div class="moodboard">
